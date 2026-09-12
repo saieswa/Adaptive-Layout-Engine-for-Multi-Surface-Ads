@@ -19,7 +19,7 @@ The layout engine uses a TypeScript-based constraint resolution algorithm instea
 ---
 ## Project Preview
 
-![Adaptive Layout Engine Preview](public/screenshots/project-preview.png)
+![Adaptive Layout Engine Preview]("C:\Users\ADMIN\OneDrive\Pictures\Screenshots\Screenshot 2026-09-12 220210.png")
 
 ## Problem
 
