@@ -1,57 +1,60 @@
 # Adaptive Layout Engine for Multi-Surface Ads
 
-A constraint-driven layout engine built with **React + TypeScript** that adapts a single advertisement specification to different screen surfaces.
+A constraint-driven layout engine built with React and TypeScript that adapts a single advertisement specification across multiple surfaces with different aspect ratios and constraints.
 
-The goal is to define an advertisement once and automatically resolve its layout based on the constraints of the target surface.
+## Overview
 
----
+The goal of this project is to define an advertisement once and automatically resolve its layout for different surfaces.
 
-**GitHub:** `https://github.com/saieswa/Adaptive-Layout-Engine-for-Multi-Surface-Ads`
+The same ad specification can be rendered on:
 
----
+- Mobile Portrait
+- Mobile Landscape
+- Broadcast Lower Third
+- Square Retail Kiosk
+- Constrained test surfaces
 
-## 📌 Problem
-
-Flam ads can appear on many different surfaces:
-
-- Mobile portrait screens
-- Mobile landscape screens
-- Broadcast lower-thirds
-- Square retail kiosks
-- Other unknown surfaces
-
-A single advertisement should not require a separate hardcoded layout for every surface.
-
-For example, the same advertisement may contain:
-
-- Headline
-- Product image
-- Price
-- Call-to-action button
-- Branding
-
-The layout engine needs to determine automatically:
-
-- Where each element should be placed
-- How large each element should be
-- Which elements should be reduced when space is limited
-- Which lower-priority elements can be removed
-- How to respect surface-specific constraints
-- How to prevent overlaps and clipping
+The layout engine uses a TypeScript-based constraint resolution algorithm instead of hardcoded layouts or CSS media-query breakpoints.
 
 ---
 
-# 🎯 Solution
+## Problem
 
-This project uses a **constraint-based layout resolver**.
+The same advertisement may need to run on screens with very different dimensions and constraints.
 
-The advertisement is defined once:
+For example:
+
+- A mobile portrait screen is tall and narrow.
+- A mobile landscape screen is wide and short.
+- A broadcast lower third is extremely wide and short.
+- A square kiosk has equal width and height.
+
+A single fixed layout cannot work well across all of these surfaces.
+
+The problem this project solves is:
+
+> Given one advertisement specification and one surface profile, automatically calculate a valid layout that adapts to the available space and constraints.
+
+The engine must:
+
+- Preserve high-priority content.
+- Respect surface-specific constraints.
+- Avoid overlapping elements.
+- Avoid clipping and overflow.
+- Adapt the composition instead of simply scaling everything.
+- Gracefully remove or reduce lower-priority content when necessary.
+
+---
+
+# Solution
+
+The application separates advertisement definition, constraint resolution, and rendering.
 
 ```text
-Ad Specification
-       ↓
-Constraint Resolver
-       ↓
-Resolved Layout
-       ↓
-DOM Renderer
+Ad Spec + Surface Profile
+            ↓
+    Constraint Resolver
+            ↓
+     Resolved Layout
+            ↓
+       DOM Renderer
