@@ -17,6 +17,9 @@ The same ad specification can be rendered on:
 The layout engine uses a TypeScript-based constraint resolution algorithm instead of hardcoded layouts or CSS media-query breakpoints.
 
 ---
+## Project Preview
+
+![Adaptive Layout Engine Preview](public/screenshots/project-preview.png)
 
 ## Problem
 
