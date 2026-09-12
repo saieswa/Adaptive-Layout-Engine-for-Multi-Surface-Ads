@@ -17,7 +17,6 @@ The same ad specification can be rendered on:
 The layout engine uses a TypeScript-based constraint resolution algorithm instead of hardcoded layouts or CSS media-query breakpoints.
 
 ---
-![Uploading Screenshot 2026-09-12 220210.png…]()
 
 
 ## Problem
